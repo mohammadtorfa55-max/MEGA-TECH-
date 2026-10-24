@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+        <script>
+            if (localStorage.getItem('account') !== null && sessionStorage.getItem('is_redirected') === null) {
+                sessionStorage.setItem('is_redirected', 'yes');
+                window.location.href = 'login.html';
+            }
+        </script>
+</head>
+<body>
+    <h2>📝 MEGA_TECH 📐</h2>
+    <div class="container">
+        <div>
+            <input id="taskInput" type="text" placeholder="اكتب نوع الصنف">
+            <input id="taskInput2" type="text" placeholder="رقم الدرج">
+            <input id="taskInput3" type="number" placeholder="عدد القطع">
+            <input id="taskInput4" type="number" placeholder="الحد الأدنى">
+            <input id="taskInput5" type="number" placeholder="سعر القطعه">
+            <button id="addBtn">Add Task</button>
+        </div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>إجمالي الأصناف المسجلة</h3>
+                <p id="total-products">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>المخزون الكلي (قطعة/وحدة)</h3>
+                <p id="total-items">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>إجمالي قيمة الأصول بالمخزن</h3>
+                <p id="total-value">0.00 $</p>
+            </div>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 ابحث عن قطة الغيار . . .">
+            <input type="text" id="searcInput"  placeholder="🔍 ابحث عن ما الموجد بي الدرج . . .">
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>اسم الصنف. /</th>
+                    <th>رقم الدرج. /</th>
+                    <th>عدد القطع. /</th>
+                    <th>الحد الأدنى. /</th>
+                    <th>سعر القطعه</th>
+                </tr>
+            </table>
+        </div>
+        <ul id="tasksList"></ul>
+            <div id="mst-backup-container" class="backup-ui-wrapper">
+            <button id="mst-export-btn" class="backup-btn export-action">📥 تحميل نسخة احتياطية (Backup)</button>
+            <button id="mst-import-btn" class="backup-btn import-action">📤 استرجاع نسخة احتياطية (Restore)</button>
+            </div>
+            <!-- <button onclick="logout()">تسجيل الخروج</button> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

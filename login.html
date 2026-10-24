@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style copy.css">
+</head>
+<body>
+            <h2>MEGA_TECH</h2>
+            <div class="container">
+                <h1>مخازن ميجاتك</h1>
+                <p>welcome to our MEGA TECH</p>
+                <h1>Login</h1>
+                <input id="password" type="password" placeholder="Enter your password...">
+                <button onclick="login()">Login</button>
+            </div>
+    <script>
+        let passwordInput = document.getElementById('password')
+        function login() {
+            let p = passwordInput.value;
+            let account = localStorage.getItem('account')
+            if (account == null) {
+                alert('Not Found');
+                return;
+            }
+            account = JSON.parse(account)
+            if (p === account.password) {
+                alert('😎 M S T 😎: ✅ تم تسجيل الدخول بنجاح ✅');
+                localStorage.setItem('mega_tech_auth', 'yes_logged_in'); 
+                window.location.href = 'accoun_page.html'; 
+            } else {
+                alert('😎 M S T 😎: ❌ كلمة المرور غير صحيحة! ❌');
+            }
+        }
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') { login(); }
+        });
+    </script>
+
+</body>
+</html> 
